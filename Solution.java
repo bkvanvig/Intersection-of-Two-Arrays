@@ -2,15 +2,15 @@ import java.util.*;
 import java.io.*;
 public class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
-        HashMap<Integer, Integer> n1 = new HashMap<Integer, Integer>();
+        Set<Integer> n1 = new HashSet<Integer>();
         Set<Integer> res = new HashSet<Integer>();
         for (int i = 0; i < nums1.length; i++){
-            if (!n1.containsKey(Integer.valueOf(nums1[i]))){
-                n1.put(nums1[i], 0);
+            if (!n1.contains(Integer.valueOf(nums1[i]))){
+                n1.add(Integer.valueOf(nums1[i]));
             }
         }
         for (int i = 0; i < nums2.length; i++){
-            if (n1.containsKey(Integer.valueOf(nums2[i])) && !res.contains(Integer.valueOf(nums2[i]))){
+            if (n1.contains(Integer.valueOf(nums2[i])) && !res.contains(Integer.valueOf(nums2[i]))){
                 res.add(Integer.valueOf(nums2[i]));
             }
         }
